@@ -22,6 +22,7 @@ class JvmCoreLibraryConventionPlugin : Plugin<Project> {
             pluginManager.apply(JavaLibraryPlugin::class.java)
             pluginManager.apply(KotlinPluginWrapper::class.java)
             pluginManager.apply(DetektConventionPlugin::class.java)
+            pluginManager.apply(CheckstyleConventionPlugin::class.java)
             pluginManager.apply(JacocoConventionPlugin::class.java)
 
             // Set the project's group and version from Gradle properties.

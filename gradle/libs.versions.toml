@@ -6,6 +6,7 @@ junit-jupiter = "5.13.1"
 # Using the latest 1.x version. A full upgrade to a 2.x version of Detekt
 # is pending until a stable, non-RC version is released that supports Kotlin 2.x.
 detekt = "1.23.8"
+checkstyle = "10.26.0"
 jacoco = "0.8.12"
 gradle-doctor = "0.9.0"
 
@@ -29,6 +30,7 @@ detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plu
 
 # Detekt (for 'detektPlugins' configuration)
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+detekt-report-merging = { module = "io.gitlab.arturbosch.detekt:detekt-report-merging", version.ref = "detekt" }
 
 # JUnit (for testing our build logic)
 junit-jupiter-bom = { module = "org.junit:junit-bom", version.ref = "junit-jupiter" }
@@ -42,6 +44,7 @@ jvm-core-library-convention = { id = "jvm-core-library-convention", version = "u
 jvm-spring-library-convention = { id = "jvm-spring-library-convention", version = "unspecified" }
 spring-boot-app-convention = { id = "spring-boot-app-convention", version = "unspecified" }
 detekt-convention = { id = "detekt-convention", version = "unspecified" }
+checkstyle-convention = { id = "checkstyle-convention", version = "unspecified" }
 
 # External Plugins
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

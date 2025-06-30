@@ -3,20 +3,26 @@ package plugins.conventions
 import org.gradle.testkit.runner.TaskOutcome
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.BeforeEach
 import java.io.File
 import org.junit.jupiter.api.Test
 
 class JacocoConventionPluginTest : ConventionPluginTest() {
 
-    @Test
-    fun `jacocoTestReport generates xml and html reports`() {
-        // 1. Arrange: Define the build script that applies the convention plugin by its ID.
+    @BeforeEach
+    fun setup() {
         val buildScript = """
             plugins {
                 id("jvm-core-library-convention")
             }
         """
+        // Define the build script that applies the convention plugin by its ID.
         setupTestProject(buildKts = buildScript)
+    }
+
+    @Test
+    fun `jacocoTestReport generates xml and html reports`() {
+        // 1. Arrange
         createSourceFile("src/main/kotlin/com/example/Dummy.kt", DUMMY_KT_SOURCE)
         createSourceFile("src/test/kotlin/com/example/DummyTest.kt", DUMMY_TEST_KT_SOURCE)
 

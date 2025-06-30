@@ -14,5 +14,4 @@ public record Action(
         String name,
         String description,
         Map<String, Object> inputSchema,
-        Map<String, Object> operation
-) {}
+        Map<String, Object> operation) {}
