@@ -35,6 +35,8 @@ rootProject.name = "a2a-jvm"
 
 // Include all subprojects that are part of this build.
 include("a2a-jvm-core")
+include("a2a-jvm-authentication-bearer")
+include("a2a-jvm-authentication-oauth2")
 include("a2a-jvm-transport-jsonrpc")
 include("a2a-jvm-client")
 include("a2a-jvm-server")

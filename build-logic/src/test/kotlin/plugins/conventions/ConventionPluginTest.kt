@@ -39,6 +39,14 @@ abstract class ConventionPluginTest {
             ?: error("The 'detekt.config.content' system property was not found.")
     }
 
+    /**
+     * Helper property to get the Checkstyle config directory path from system properties.
+     */
+    private val checkstyleConfigDir: String by lazy {
+        System.getProperty("checkstyle.config.dir")
+            ?: error("The 'checkstyle.config.dir' system property was not found.")
+    }
+
     companion object {
         /**
          * A valid, multi-line Kotlin source file that complies with Detekt rules.
@@ -103,6 +111,9 @@ abstract class ConventionPluginTest {
 
         // Create the Detekt configuration from the project's default.
         createDefaultDetektConfig()
+
+        // Copy over checkstyle configurations from the project's default.
+        copyCheckstyleConfig()
     }
 
     /**
@@ -114,6 +125,22 @@ abstract class ConventionPluginTest {
         val configFile = File(projectDir, "tools/detekt/detekt.yml")
         configFile.parentFile.mkdirs()
         configFile.writeText(detektConfig)
+    }
+
+    /**
+     * Copies the entire Checkstyle configuration directory from the main project
+     * into the temporary test project directory.
+     */
+    private fun copyCheckstyleConfig() {
+        val sourceDir = File(checkstyleConfigDir)
+        if (sourceDir.exists()) {
+            // The destination is tools/checkstyle within the temporary projectDir
+            val destDir = File(projectDir, "tools/checkstyle")
+            sourceDir.copyRecursively(destDir, overwrite = true)
+        } else {
+            // This case should not happen if the system property is set correctly.
+            error("Source checkstyle config directory not found at: $checkstyleConfigDir")
+        }
     }
 
     /**

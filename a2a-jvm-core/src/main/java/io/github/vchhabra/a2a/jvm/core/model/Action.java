@@ -1,4 +1,4 @@
-package io.github.vchhabra.a2a.jvm.core;
+package io.github.vchhabra.a2a.jvm.core.model;
 
 import java.util.Map;
 
@@ -14,5 +14,4 @@ public record Action(
         String name,
         String description,
         Map<String, Object> inputSchema,
-        Map<String, Object> operation
-) {}
+        Map<String, Object> operation) {}

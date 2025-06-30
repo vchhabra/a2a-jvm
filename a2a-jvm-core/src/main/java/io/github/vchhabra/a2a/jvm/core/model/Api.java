@@ -1,6 +1,8 @@
-package io.github.vchhabra.a2a.jvm.core;
+package io.github.vchhabra.a2a.jvm.core.model;
 
 import java.net.URI;
+
+import io.github.vchhabra.a2a.jvm.core.model.enums.ApiType;
 
 /**
  * Describes the API endpoint for task management.
@@ -8,4 +10,4 @@ import java.net.URI;
  * @param type The type of API, e.g., "json_rpc_http".
  * @param url The URL endpoint for creating and managing tasks.
  */
-public record Api(String type, URI url) {}
+public record Api(ApiType type, URI url) {}

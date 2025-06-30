@@ -77,6 +77,7 @@ jobs:
             **/build/reports/tests/test/**
             **/build/reports/detekt/**
             **/build/reports/jacoco/test/**
+            **/build/reports/checkstyle/**
 
   # Job 3: Builds and tests the build-logic and build-infra modules.
   # This job only runs if build tool code changed OR if a workflow file was changed.
