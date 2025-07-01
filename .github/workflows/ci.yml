@@ -20,7 +20,7 @@ jobs:
     outputs:
       run_app_build: ${{ steps.filter.outputs.app }}
       run_tools_build: ${{ steps.filter.outputs.tools }}
-      run_all_builds: ${{ steps.filter.outputs.workflows }}
+      run_all_builds: ${{ steps.filter.outputs.global }}
     steps:
       - name: "☁️ Checkout"
         uses: actions/checkout@v4
@@ -38,9 +38,13 @@ jobs:
             tools:
               - 'build-logic/**'
               - 'build-infra/**'
-            # 'workflows' is true if any GitHub Actions workflow file has changed.
-            workflows:
+            # 'global' is true if a change of global relevance is detected.
+            global:
               - '.github/workflows/**'
+              - 'tools/**'
+              - 'gradle/**'
+              - 'settings.gradle.kts'
+              - 'gradle.properties'
 
   # Job 2: Builds and tests the main application modules.
   # This job only runs if application code changed OR if a workflow file was changed.
