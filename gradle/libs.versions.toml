@@ -2,7 +2,7 @@
 java = "17"
 kotlin = "2.2.0"
 spring-boot = "3.5.3"
-junit-jupiter = "5.13.2"
+junit-jupiter = "5.13.3"
 # Using the latest 1.x version. A full upgrade to a 2.x version of Detekt
 # is pending until a stable, non-RC version is released that supports Kotlin 2.x.
 detekt = "1.23.8"
